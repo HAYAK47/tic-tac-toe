@@ -1,0 +1,54 @@
+body {
+
+    background-color: #59A27A;
+  }
+  
+.container{
+    /* height: 90vh;
+    display: flex;
+    justify-content: center; */
+    display: grid;
+    grid-gap: 2px;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 17px 50px;
+    cursor: pointer; 
+    background-color: aliceblue;
+    margin: 50px auto;
+    vertical-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 25px;
+    width: 600px;
+    height: 600px;
+}
+  
+.grid{
+    box-shadow: 0 0 20px 0  #59A27A;(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    height: 600px;
+    width: 600px;
+    
+}
+.grid div{
+    border: 1px solid  #59A27A;; 
+    height: 33%;
+    width: 33%;
+    /* cursor: crosshair; */
+}
+.X{
+    background-image: url('https://www.pngall.com/wp-content/uploads/5/Red-X-Letter-PNG-Clipart.png');
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.O{
+    background-image: url('https://www.pngplay.com/wp-content/uploads/5/Alphabet-O-PNG-Photo-Image.png');
+    background-size: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+}
+
+
