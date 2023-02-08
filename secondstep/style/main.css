@@ -1,3 +1,19 @@
+*{
+    text-align: center;
+}
+
+h1{
+text-align: center ;
+color: #DEDEDE;
+font-family:Monospace, sans-serif ;
+}
+
+h3{
+    text-align: center ;
+    color: #DEDEDE;
+    font-family:Monospace, sans-serif ;
+}
+
 body {
 
     background-color: #59A27A;
@@ -15,18 +31,18 @@ body {
     background-color: aliceblue;
     margin: 50px auto;
     vertical-align: center;
-    font-family:'Times New Roman', Times, serif;
-    font-size: 25px;
-    width: 600px;
-    height: 600px;
+    /* font-family:'Times New Roman', Times, serif;
+    font-size: 25px; */
+    width: 500px;
+    height: 500px;
 }
   
 .grid{
     box-shadow: 0 0 20px 0  #59A27A;(0, 0, 0, 0.2);
     display: flex;
     flex-wrap: wrap;
-    height: 600px;
-    width: 600px;
+    height: 500px;
+    width: 500px;
     
 }
 .grid div{
@@ -36,21 +52,34 @@ body {
     /* cursor: crosshair; */
 }
 .X{
-    background-image: url('https://www.pngall.com/wp-content/uploads/5/Red-X-Letter-PNG-Clipart.png');
-    background-size: 200px;
+    background-image: url('/images/X.png');
+    background-size: 150px;
     background-position: center;
     background-repeat: no-repeat;
 
 }
+
+
+
 
 .O{
-    background-image: url('https://www.pngplay.com/wp-content/uploads/5/Alphabet-O-PNG-Photo-Image.png');
-    background-size: 180px;
+    background-image: url('/images/O.png');
+    background-size: 150px;
     background-position: center;
-    top: 20%;
     background-repeat: no-repeat;
 
 
 }
 
 
+.reset{
+    position: center;
+    /* font-size: 16px; */
+    text-align: center;
+    margin: auto;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border-color: #59A27A ;
+    box-shadow:  0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    
+} 

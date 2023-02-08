@@ -1,18 +1,18 @@
 function init(){
 const grid = document.querySelector('.grid')
-const playerCount = document.getElementById('#playerCount')
-const computerCount= document.getElementById('#computerCount')
+const winnerTag = document.querySelector('#winning')
+const reset = document.querySelector('.reset')
+
     const width = 3
     const gridCellCount = width * width
     const cells = []
-    const winningCondition= [[0,1,2],[3,4,5],[6,7,8],[0,3,6],
-[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
-
     let playerOne = true
     let playertwo = false
+    let resetCount = 0
+    let winStatus = false
     
 
-//cells index
+//cells index, add id push them
     function creatGrid(){
         for(let i = 1; i <= gridCellCount ; i++){
             const cell = document.createElement('div')
@@ -20,93 +20,160 @@ const computerCount= document.getElementById('#computerCount')
             cell.setAttribute('class','blank')
             cells.push(cell)
             grid.appendChild(cell)
-        }
-
-       
-    }
+        } }
    
+
+        function handleMouseEnter(event){
+            event.target.style.width = '300px'
+            console.log('mouse is entering', event.target)
+            event.target.style.backgroundColor= "red"
+          }
+          cells.forEach(cell => {
+            cell.addEventListener('mouseEnter', handleMouseEnter)
+        })
+      
+
     //player click cell
-    // let count = 0
-    // if(count < 10){
     function playerX(event){
         if(event.target.classList.contains('blank')){
         // if(playerOne == true){
-        console.log(event.target.id)
+        // console.log(event.target.id)
         event.target.classList.add('X')
         event.target.classList.remove('blank')
         playerOne = false
         playertwo = true
-        //console.log(cells[0].className == 'X')
-        
-    // cells.forEach(cell => {
-    //     cell.addEventListener('click', playerO)})
-        // }
-        console.log(event.target.classList)
+
         Winning()
-    }  } 
-//} 
+    }}
 
     function playerO(event){
         if(event.target.classList.contains('blank')){
     //  if(playertwo == true){
-        console.log(event.target.id)
+        // console.log(event.target.id)
         event.target.classList.add('O')
         event.target.classList.remove('blank')
         playertwo= false
         playerOne = true
-
-    
-    // } 
-
-    // count ++
-    // console.log(count)
-    console.log(event.target.classList)
+      
     Winning()
 }}
 
+// 
+
 function startGame(event){
-    console.log(event.target)
+    if(resetCount<  9 ){
+    // console.log(event.target)
     if(playerOne == true){
         playerX(event)
     }else{
         playerO(event)
     }
+  resetCount++
+ console.log(resetCount)
     // Winning()
-}
- 
+}}
+
 
     function Winning(){
-       for(let i = 1; i<=cells.length; i++){
-    // if(cells[0].classList.contains('X') === true;
-    //     (cells[1].classList.contains('X') === true)
-    //     cells[2].classList.contains('X') === true;{
-        console.log("hi")
-        console.log(cells[1].classList)
-        if(cells[1].classList === cells[2].classList === cells[3].classList){
-            console.log("the winner is")
-            console.log(cells[1].classList)
-        }           
+       for(let i = 0; i<=cells.length; i++){
+    //player X win
+        if(cells[0].classList.contains('X') && cells[1].classList.contains('X') && cells[2].classList.contains('X')){
+            winnerTag.innerHTML='Winner Is X'
+            winStatus = true}
+        else if(cells[3].classList.contains('X') && cells[4].classList.contains('X') && cells[5].classList.contains('X')){
+            winnerTag.innerHTML='Winner Is X'
+            winStatus = true}
+        else if(cells[6].classList.contains('X') && cells[7].classList.contains('X') && cells[8].classList.contains('X')){
+            winnerTag.innerHTML='Winner Is X'
+            winStatus = true}
+       else if(cells[0].classList.contains('X') && cells[3].classList.contains('X') && cells[6].classList.contains('X')){
+        winnerTag.innerHTML='Winner Is X'
+        winStatus = true}
+        else if(cells[1].classList.contains('X') && cells[4].classList.contains('X') && cells[7].classList.contains('X')){
+            winnerTag.innerHTML='Winner Is X'
+            winStatus = true}
+        else if(cells[2].classList.contains('X') && cells[5].classList.contains('X') && cells[8].classList.contains('X')){
+            winnerTag.innerHTML='Winner Is X'
+            winStatus = true}
+        else if(cells[0].classList.contains('X') && cells[4].classList.contains('X') && cells[8].classList.contains('X')){
+            winnerTag.innerHTML='Winner Is X'
+            winStatus = true}
+        else if(cells[2].classList.contains('X') && cells[4].classList.contains('X') && cells[6].classList.contains('X')){
+                                    winnerTag.innerHTML='Winner Is X'
+                                    winStatus = true}
+        
 
-                }      
-       
+
+    /// player O win
+     else if(cells[0].classList.contains('O') && cells[1].classList.contains('O') && cells[2].classList.contains('O')){
+        winnerTag.innerHTML='Winner Is O'
+        winStatus = true}
+    else if(cells[3].classList.contains('O') && cells[4].classList.contains('O') && cells[5].classList.contains('O')){
+        winnerTag.innerHTML='Winner Is O'
+        winStatus = true}
+    else if(cells[6].classList.contains('O') && cells[7].classList.contains('O') && cells[8].classList.contains('O')){
+        winnerTag.innerHTML='Winner Is O'
+        winStatus = true}
+   else if(cells[0].classList.contains('O') && cells[3].classList.contains('O') && cells[6].classList.contains('O')){
+    winnerTag.innerHTML='Winner Is O'
+    winStatus = true}
+    else if(cells[1].classList.contains('O') && cells[4].classList.contains('O') && cells[7].classList.contains('O')){
+        winnerTag.innerHTML='Winner Is O'
+        winStatus = true}
+    else if(cells[2].classList.contains('O') && cells[5].classList.contains('O') && cells[8].classList.contains('O')){
+        winnerTag.innerHTML='Winner Is O'
+        winStatus = true}
+    else if(cells[0].classList.contains('O') && cells[4].classList.contains('O') && cells[8].classList.contains('O')){
+        winnerTag.innerHTML='Winner Is O'
+        winStatus = true}
+    else if(cells[2].classList.contains('O') && cells[4].classList.contains('O') && cells[6].classList.contains('O')){
+        winnerTag.innerHTML='Winner Is O'
+        winStatus = true}
       
-    }
+        
+    //if no winner
+//     else if(cells[0].classList.contains('') && cells[1].classList.contains('') && cells[2].classList.contains('X')){
+//         winnerTag.innerHTML='No Winner'
+//     }else if(cells[3].classList.contains('X') && cells[4].classList.contains('X') && cells[5].classList.contains('X')){
+//         winnerTag.innerHTML='No Winner'
+//     }else if(cells[6].classList.contains('X') && cells[7].classList.contains('X') && cells[8].classList.contains('X')){
+//         winnerTag.innerHTML='No Winner'}
+//    else if(cells[0].classList.contains('X') && cells[3].classList.contains('X') && cells[6].classList.contains('X')){
+//     winnerTag.innerHTML='No Winner'}
+//     else if(cells[1].classList.contains('X') && cells[4].classList.contains('X') && cells[7].classList.contains('X')){
+//         winnerTag.innerHTML='No Winner'}
+//     else if(cells[2].classList.contains('X') && cells[5].classList.contains('X') && cells[8].classList.contains('X')){
+//         winnerTag.innerHTML='No Winner'}
+//     else if(cells[0].classList.contains('X') && cells[4].classList.contains('X') && cells[8].classList.contains('X')){
+//         winnerTag.innerHTML='No Winner'}
+//     else if(cells[2].classList.contains('X') && cells[4].classList.contains('X') && cells[6].classList.contains('X')){
+//                                 winnerTag.innerHTML='No Winner'}
+
+}}
+
+function resetButton(){
+    // if(winStatus === true){
+    cells.forEach(cell => {
+        cell.classList.remove('X')
+        cell.classList.add('blank')
+        cell.classList.remove('O')
+        cell.classList.add('blank')
+    })
+    
+    console.log('remove')
+}  
+
+reset.addEventListener('click', resetButton)
+
 
     creatGrid()
+ 
     cells.forEach(cell => {
         cell.addEventListener('click', startGame)
     })
+    resetButton()
 
-
-   
 
 }
 window.addEventListener('DOMContentLoaded', init)
 
-
-
-//computer play
-//  function playerO(event){
-//     if (playerX)    
-//   } else {
-//   playerX()}
