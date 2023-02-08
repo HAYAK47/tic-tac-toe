@@ -10,19 +10,32 @@
 
 </head>
 <body>
-    <h1> Tic Tac Toe!</h1>
+    <h1> TIC TAC TOE </h1>
     <h3><span id="winning"></span></h3>
+    <div class="btn">
+        <button class="reset">Reset</button>
+      </div> 
 
 
 <div class="container">
   <div class ="grid"></div>
 </div>
 
+<div id="popup1" class="overlay">
+    <div class="popup">
+      <h2 id="endText">Winner, Winner, Chicken Dinner 😎</h2>
+      <!-- This hides it. -->
+      <a class="close" href="#popup1">×</a>
+      <div class="content">Exit To Play Again</div>
+    </div>
+  </div>
 
-  
-  <div class="btn">
-    <button class="reset">Reset</button>
-  </div> 
+
+   
+
+ 
+  <audio id = 'clap'></audio>
+  <audio id = 'pink'></audio>
 
    
 </body>
