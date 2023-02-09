@@ -18,7 +18,9 @@ function init() {
     let soundStatus = true
 
 
-    //cells index, add id push them
+    //cells index, creat id for each cell and push them 
+    // in the array i created, so when i do class for 
+    //x,o they have place to set
     function creatGrid() {
         for (let i = 1; i <= gridCellCount; i++) {
             const cell = document.createElement('div')
@@ -30,16 +32,16 @@ function init() {
     }
 
 
-    function handleMouseEnter(event) {
-        event.target.style.width = '300px'
-        console.log('mouse is entering', event.target)
-        event.target.style.backgroundColor = "red"
-        sound.src = 'sounds/pink.mp3'
-        sound.play()
-    }
-    cells.forEach(cell => {
-        cell.addEventListener('mouseEnter', handleMouseEnter)
-    })
+    // function handleMouseEnter(event) {
+    //     // event.target.style.width = '300px'
+    //     // console.log('mouse is entering', event.target)
+    //     // event.target.style.backgroundColor = "red"
+    //     sound.src = 'sounds/pink.mp3'
+    //     sound.play()
+    // }
+    // cells.forEach(cell => {
+    //     cell.addEventListener('mouseEnter', handleMouseEnter)
+    // })
 
 
     //player click cell
@@ -75,7 +77,7 @@ function init() {
         }
     }
 
-    // 
+    //start playing the game when its clicked on cells
 
     function startGame(event) {
         console.log(winStatus)
@@ -91,16 +93,16 @@ function init() {
             // Winning()
         }
     }
-
+//this for ending the winning alert
     function popUp() {
         document.body.appendChild(pop) }
-
+//this didnt work yet
 function backgroundSound(){
     if(winStatus === true){
         sound.play()
     }}
 
-
+//this is winning conditions 
     function Winning() {
         for (let i = 0; i <= cells.length; i++) {
             //player X win
@@ -302,7 +304,7 @@ function backgroundSound(){
             }
 
 
-            //if no winner
+            //if no winner 
             else if (cells[0].classList.contains('X') != cells[1].classList.contains('X') != cells[2].classList.contains('X')) {
                 winnerTag.innerHTML = 'Try Your Best'
                
@@ -344,7 +346,9 @@ function backgroundSound(){
         }
     }
 
-
+//this is reset the game clear all cells when the winning
+//status become false as we decided in the conditions
+//remove each x,o to return it to blank again
     function resetButton() {
         // if(winStatus === true){
             winStatus=false
@@ -357,9 +361,13 @@ function backgroundSound(){
 
         console.log('remove')
     }
+
     backgroundSound()
+    //calling the reset button
     reset.addEventListener('click', resetButton)
+    //calling the grid
     creatGrid()
+    //calling to start the game
     cells.forEach(cell => {
         cell.addEventListener('click', startGame)
     })
