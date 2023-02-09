@@ -52,7 +52,7 @@ body {
     /* cursor: crosshair; */
 }
 .X{
-    background-image: url('/images/X.png');
+    background-image: url('../images/X.png');
     background-size: 150px;
     background-position: center;
     background-repeat: no-repeat;
@@ -63,7 +63,7 @@ body {
 
 
 .O{
-    background-image: url('/images/O.png');
+    background-image: url('../images/O.png');
     background-size: 150px;
     background-position: center;
     background-repeat: no-repeat;
